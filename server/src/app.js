@@ -6,7 +6,6 @@ import cors from 'cors';
 import chalk from 'chalk';
 
 const app = express();
-const port = process.env.PORT || 3333;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,9 +15,15 @@ app.use(cors({
   methods: ['GET, POST, PUT, DELETE', 'OPTIONS'],
 }));
 
+/**
+ * if the node env is in production then w're serving from the transpiled folder
+ * at dis/client/index
+ * in production, server would serve static at port 3333 no client server
+ * in dev server would be running on 3333 and serving static as well as
+ * the client running on 3000
+ * for more info refer to the readme.md
+ */
 
-// if the node env is in production then w're serving from the transpiled folder
-// at dis/client/index
 const staticPathOffset = process.env.NODE_ENV === 'production' ? '../' : '';
 
 app.use(express.static(path.join(__dirname, `/../../${staticPathOffset}client/build/`)));
@@ -27,6 +32,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, `/../../${staticPathOffset}client/build/`, 'index.html'));
 });
 
-app.listen(port, () => {
-  console.log(chalk.blue('listening on port:', chalk.green.bold(port)));
+app.listen(process.env.PORT, () => {
+  console.log(chalk.blue('listening on port:', chalk.green.bold(process.env.PORT)));
 });
