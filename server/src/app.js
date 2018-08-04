@@ -26,11 +26,18 @@ app.use(cors({
 
 const staticPathOffset = process.env.NODE_ENV === 'production' ? '../' : '';
 
+
+app.get('/api/hello', (req, res) => {
+  console.log(chalk.bgBlue('I was hit'));
+  res.send(JSON.stringify({ word: 'Hello world' }));
+});
+
 app.use(express.static(path.join(__dirname, `/../../${staticPathOffset}client/build/`)));
 // Handle React routing, return all requests to React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, `/../../${staticPathOffset}client/build/`, 'index.html'));
 });
+
 
 app.listen(process.env.PORT, () => {
   console.log(chalk.blue('listening on port:', chalk.green.bold(process.env.PORT)));
