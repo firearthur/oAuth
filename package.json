@@ -11,7 +11,8 @@
     "babel-node": "babel-node --presets=env",
     "start": "node ./server/dist/index.js",
     "build-server": "rm -rf ./server/dist/ && babel ./server --out-dir server/dist/ --ignore readme.md,yarn.lock,./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "build": "yarn build-server && cd ./client && yarn build"
+    "build": "yarn build-server && cd ./client && yarn build",
+    "dep":"yarn && cd client yarn"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
