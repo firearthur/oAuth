@@ -4,14 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "client": "cd ./../client && yarn start",
-    "server": "nodemon --exec yarn babel-node -- ./index.js",
+    "client": "cd ./client && yarn start",
+    "server": "nodemon --exec yarn babel-node -- ./server/index.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node --presets=env",
-    "start": "node ./dist/index.js",
-    "build-server": "rm -rf dist/ && babel ./ --out-dir dist/ --ignore readme.md,yarn.lock,./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "build": "yarn build-server && cd ./../client && yarn build"
+    "start": "node ./server/dist/index.js",
+    "build-server": "rm -rf ./server/dist/ && babel ./server --out-dir server/dist/ --ignore readme.md,yarn.lock,./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "build": "yarn build-server && cd ./client && yarn build"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

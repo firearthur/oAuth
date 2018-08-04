@@ -42,6 +42,7 @@ app.use((0, _cors2.default)({
  * in production, server would serve static at port 3333 no client server
  * in dev server would be running on 3333 and serving static as well as
  * the client running on 3000
+ * for more info refer to the readme.md
  */
 
 var staticPathOffset = process.env.NODE_ENV === 'production' ? '../' : '';
