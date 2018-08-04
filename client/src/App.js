@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import CssModules from 'react-css-modules';
 import styles from './App.css';
-import Load from './components/loadSomething/Load';
+// import Load from './components/loadSomething/Load';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
         <p styleName="App-intro">
           To get started, change <code>src/App.js</code> and save to reload!!
         </p>
-        <Load />
+        
       </div>
     );
   }
