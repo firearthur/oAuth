@@ -47,6 +47,11 @@ app.use((0, _cors2.default)({
 
 var staticPathOffset = process.env.NODE_ENV === 'production' ? '../' : '';
 
+app.get('/api/hello', function (req, res) {
+  console.log(_chalk2.default.bgBlue('I was hit'));
+  res.send(JSON.stringify({ word: 'Hello world' }));
+});
+
 app.use(_express2.default.static(_path2.default.join(__dirname, '/../../' + staticPathOffset + 'client/build/')));
 // Handle React routing, return all requests to React app
 app.get('*', function (req, res) {
@@ -56,3 +61,4 @@ app.get('*', function (req, res) {
 app.listen(process.env.PORT, function () {
   console.log(_chalk2.default.blue('listening on port:', _chalk2.default.green.bold(process.env.PORT)));
 });
+console.log(process.env.DB_NAME);

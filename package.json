@@ -4,22 +4,28 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "client": "cd ./client && yarn start",
-    "server": "nodemon --exec yarn babel-node -- ./server/index.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "client:dev": "cd ./client && yarn start",
+    "server:dev": "nodemon --exec yarn babel-node -- ./server/index.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server:dev\" \"yarn client:dev\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node --presets=env",
     "start": "node ./server/dist/index.js",
     "build-server": "rm -rf ./server/dist/ && babel ./server --out-dir server/dist/ --ignore readme.md,yarn.lock,./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "build": "yarn build-server && cd ./client && yarn build"
+    "build": "yarn build-server && cd ./client && yarn build",
+    "dep": "yarn && cd client && yarn"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
+    "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "morgan": "^1.9.0"
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
