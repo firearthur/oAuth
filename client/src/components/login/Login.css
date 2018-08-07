@@ -1,0 +1,64 @@
+.form-container {
+  width: 450px;
+  height: 350px;
+  margin-top: 40px;
+  padding: 50px;
+  /* border: #30383e solid 1px; */
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px #888888;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f7f5f5;
+  background-image: url(./../images/bg/login-bg5.png);
+  background-size: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+body{
+  background-color: #ebe9e9;
+}
+
+.field-title {
+  font-size: 16px;
+  padding-right: 15px;
+}
+
+.field-area {
+  padding: 15px;
+}
+
+.form-logo{
+  width: 250px;
+}
+
+.div-btn {
+  padding: 15px;
+  width: 150px;
+  float: right;
+  margin-right: 100px;
+}
+
+.btn1 {
+  font-size: 16px;
+    letter-spacing: .03em;
+    background-color: #0077f0;
+    color: #fff;
+    border: 0px;
+    border-radius: 5px;
+    padding: 8px 40px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #555555;
+    margin-bottom: 20px; 
+}
+
+.btn1:hover {
+  background-color: #fcaf17;
+}
+
+.btn1:focus {
+  background-color: #2c3235;
+ /* border: 0px solid #333333;*/
+ box-shadow: 1px 1px 10px #555555;
+}

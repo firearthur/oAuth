@@ -2,6 +2,7 @@ import React from 'react';
 import CssModules from 'react-css-modules'
 import styles from './Load.css';
 import { compose, withStateHandlers } from 'recompose';
+import { loadavg } from 'os';
 
 // const Load = ({result, handleClick}) => (
 //   <div styleName="loader">
@@ -46,6 +47,7 @@ const updaters = {
 };
 
 
-export default compose(
-  withStateHandlers({result: {}}, updaters),
-)(CssModules(Load, styles));
+// export default compose(
+//   withStateHandlers({result: {}}, updaters),
+// )(CssModules(Load, styles));
+export default CssModules(load, styles)
